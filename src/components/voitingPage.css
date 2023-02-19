@@ -1,0 +1,25 @@
+.vote{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    width: 70vw;
+justify-content: space-around;
+background-color: rgb(181, 186, 186);
+}
+button{
+   width: 200px;
+height: 30px;
+margin-top: 2vh;
+border-radius: 10px;
+
+}
+.img{
+margin-top: 20px;
+height: 200px;
+width: 200px;
+border: 1px solid black;
+}
+.buttonDisabled{
+    padding: '10px 30px';
+    cursor: 'not-allowed',
+  }
