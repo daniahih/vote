@@ -35,6 +35,7 @@ const Voting = () => { // decaring a parent commponents
   // this is for button after voted 
   const [Done, setDone] = useState(false);
   const [Change, setChange] = useState(false);
+  const [isVote,setisVote]=useState(false)
 
 
 
@@ -52,6 +53,7 @@ const Voting = () => { // decaring a parent commponents
     setDisabledButtonId(id)
     setDone(true);
     setChange(true);
+    setisVote(true)
       localStorage.setItem("votes", JSON.stringify(votes));
   }
   const handleDone = () => {
@@ -62,12 +64,12 @@ const Voting = () => { // decaring a parent commponents
     setVotes((votes) =>
       votes.map((vote) => {
         if (vote.id === disabledButtonId) {
-            setDisabledButtonId(vote.id )
-            return Object.assign({}, vote, { count: vote.count -1 , disabled:true})
+          return Object.assign({}, vote, { count: vote.count -1 , disabled:true})
         }
         return vote
       })
-    )
+      )
+      setDisabledButtonId(null )
   };
   // when click to the button i made a use state 
 
@@ -89,10 +91,11 @@ const Voting = () => { // decaring a parent commponents
         </div>
       )} */}
       {Done && <button onClick={handleDone} >Done </button>}
-      {Change && <button onClick={handleChangeVote} disabled={disabledButtonId !== null } >Change Vote</button>}
+      {Change && <button onClick={handleChangeVote} disabled={disabledButtonId === null } >Change Vote</button>}
         </div>
       ))}
     </div>
+
   )
 }
 
